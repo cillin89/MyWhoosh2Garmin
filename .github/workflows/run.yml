@@ -2,6 +2,8 @@ name: Run MyWhoosh2Garmin
 
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: "0 18 * * *"
 
 jobs:
   run-myWhoosh2Garmin:
