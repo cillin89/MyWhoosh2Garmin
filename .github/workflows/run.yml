@@ -35,6 +35,6 @@ jobs:
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
           GARMIN_TOKENS: ${{ secrets.GARMIN_TOKENS }}
         run: |
-          set -euxo pipefail # Added 'x' to print each command before it executes
+          set -euo pipefail
           source .venv/bin/activate
-          python -u -X faulthandler myWhoosh2Garmin.py # Added flags to force instant, detailed crash logs
+          python myWhoosh2Garmin.py
