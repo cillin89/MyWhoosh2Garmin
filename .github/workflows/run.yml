@@ -8,7 +8,7 @@ on:
 jobs:
   run-myWhoosh2Garmin:
     name: Run MyWhoosh2Garmin
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest # Changed from ubuntu-slim, as ubuntu-slim isn't a standard GitHub-hosted runner
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,8 +35,6 @@ jobs:
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
           GARMIN_TOKENS: ${{ secrets.GARMIN_TOKENS }}
         run: |
-          set -euo pipefail
+          set -euxo pipefail # Added 'x' to print each command before it executes
           source .venv/bin/activate
-          python myWhoosh2Garmin.py
-
-
+          python -u -X faulthandler myWhoosh2Garmin.py # Added flags to force instant, detailed crash logs
