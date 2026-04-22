@@ -7,7 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "pydantic-settings==2.11.0",
     "pydantic==2.12.4",
-    "garth  @ git+https://github.com/cyberfossa/garth-ng@main",
+    "garth-ng  @ git+https://github.com/cyberfossa/garth-ng@main",
     "fit-tool>=0.9.13",
     "playwright==1.55.0",
 ]
